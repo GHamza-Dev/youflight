@@ -28,7 +28,7 @@ public abstract class EmailHelper {
             msg.addHeader("format", "flowed");
             msg.addHeader("Content-Transfer-Encoding", "8bit");
 
-            msg.setFrom(new InternetAddress(fromEmail, "MaCNSS Email Service"));
+            msg.setFrom(new InternetAddress(fromEmail, "MarocAir Email Service"));
 
             msg.setReplyTo(InternetAddress.parse(toEmail, false));
 

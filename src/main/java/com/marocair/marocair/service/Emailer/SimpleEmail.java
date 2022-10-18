@@ -10,16 +10,18 @@ public class SimpleEmail {
 
     // Sender's email ID needs to be mentioned
     private static String from = "lagdimi.mehdi.dev@gmail.com";
-    private static String password = "ebodxwtplfvixzxl";
+    private static String password = "sckmrcfnoztbbatm";
 
 
-    public static LocalTime sendSimpleEmail (String to, String subject, String msg) {
+    public static LocalTime sendSimpleEmail(String to, String subject, String msg) {
         // Getting system properties
         Properties properties = System.getProperties();
         properties.setProperty("mail.smtp.auth", "true");
         properties.setProperty("mail.smtp.starttls.enable", "true");
         properties.setProperty("mail.smtp.host", "smtp.gmail.com");
         properties.setProperty("mail.smtp.port", "587");
+        properties.put("mail.smtp.ssl.protocols", "TLSv1.2");
+
 
         // creating session object to get properties
         Session session = Session.getInstance(properties, new Authenticator() {

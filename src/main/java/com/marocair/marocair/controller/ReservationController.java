@@ -5,6 +5,7 @@ import com.marocair.marocair.dao.ReservationDao;
 import com.marocair.marocair.model.Flight;
 import com.marocair.marocair.model.Passenger;
 import com.marocair.marocair.model.Reservation;
+import com.marocair.marocair.service.Emailer.SimpleEmail;
 
 import java.util.List;
 
@@ -33,8 +34,11 @@ public class ReservationController {
 
         //insert new passenger
         PassengerDao passengerDao = new PassengerDao();
-        passengerDao.storePassenger(fullname, reservation.getId());
+        Passenger passenger = passengerDao.storePassenger(fullname, reservation.getId());
 
+        if (passenger != null) {
+            SimpleEmail.sendSimpleEmail("elgassaihamzam54@gmail.com","MarocAir Reservation Notice","Enjoy your trip!!!");
+        }
         return reservation;
     }
 
